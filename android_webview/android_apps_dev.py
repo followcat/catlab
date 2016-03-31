@@ -2,7 +2,7 @@ from graphviz import Digraph
 
 
 def webview41():
-    G = Digraph(name='Android Webview 4.1~4.3', node_attr={'shape': 'plaintext'})
+    G = Digraph(name='Android WebView 4.1~4.3', node_attr={'shape': 'plaintext'})
 
     G.node('android_framework', label="""<
     <TABLE>
@@ -62,8 +62,8 @@ def webview44():
         <TR>
             <TD ROWSPAN="1" COLSPAN="3">
             <TABLE BGCOLOR="grey">
-                <TR> <TD>WebView API</TD> </TR>
-                <TR> <TD>WebViewChromium</TD> </TR>
+                <TR> <TD PORT="webviewapi">WebView API</TD> </TR>
+                <TR> <TD PORT="webviewchromuim">WebViewChromium</TD> </TR>
             </TABLE> </TD>
         </TR>
     </TABLE>>""", shape="box")
@@ -85,6 +85,9 @@ def webview44():
     </TABLE>>""", shape="box")
 
 
+    G.edge("android_framework:webviewapi",
+           "android_framework:webviewchromuim",
+           label="WebViewChromuimFactory", color="blue")
     G.edge("android_framework", "chromium_android_webview", color="blue")
     return G
 
@@ -210,7 +213,7 @@ def automaticdebug_mobileapp():
             <TD>
             <TABLE>
                 <TR>
-                    <TD> Webview </TD>
+                    <TD> WebView </TD>
                     <TD>
                         <TABLE ROWSPAN="1" BGCOLOR="grey">
                             <TR> <TD> JavaScript </TD> </TR>
